@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.asseco.pst</groupId>
+        <artifactId>my-project-name</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>${project.parent.artifactId}-ear</artifactId>
+    <version>${project.parent.version}</version>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
+    <description>Models Layer</description>
+
+    <properties>
+        <war-artifact-name>${project.parent.artifactId}-services</war-artifact-name>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.asseco.pst</groupId>
+            <artifactId>${project.parent.artifactId}-services</artifactId>
+            <version>${project.version}</version>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>${maven-ear-plugin.version}</version>
+                <configuration>
+                    <modules>
+                        <webModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>${war-artifact-name}</artifactId>
+                            <bundleFileName>${war-artifact-name}.war</bundleFileName>
+                            <contextRoot>/${war-artifact-name}</contextRoot>
+                        </webModule>
+                    </modules>
+                    <version>6</version>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
