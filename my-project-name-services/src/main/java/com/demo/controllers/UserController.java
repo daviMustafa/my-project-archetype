@@ -1,7 +1,7 @@
-package com.asseco.pst.controllers;
+package com.demo.controllers;
 
-import com.asseco.pst.entity.User;
-import com.asseco.pst.services.UserService;
+import com.demo.entity.User;
+import com.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

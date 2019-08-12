@@ -1,8 +1,8 @@
-package com.asseco.pst.services.impl;
+package com.demo.services.impl;
 
-import com.asseco.pst.entity.PersistentObject;
-import com.asseco.pst.repository.AbstractDao;
-import com.asseco.pst.services.AbstractService;
+import com.demo.entity.PersistentObject;
+import com.demo.repository.AbstractDao;
+import com.demo.services.AbstractService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

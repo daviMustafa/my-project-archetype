@@ -1,4 +1,4 @@
-package com.asseco.pst.services;
+package com.demo.services;
 
 import java.util.List;
 import java.util.Optional;

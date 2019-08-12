@@ -1,7 +1,7 @@
-package com.asseco.pst.services;
+package com.demo.services;
 
 
-import com.asseco.pst.entity.User;
+import com.demo.entity.User;
 
 public interface UserService extends AbstractService<User, Long> {
 

@@ -1,8 +1,8 @@
-package com.asseco.pst.services.impl;
+package com.demo.services.impl;
 
-import com.asseco.pst.entity.User;
-import com.asseco.pst.repository.UserRepository;
-import com.asseco.pst.services.UserService;
+import com.demo.entity.User;
+import com.demo.repository.UserRepository;
+import com.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

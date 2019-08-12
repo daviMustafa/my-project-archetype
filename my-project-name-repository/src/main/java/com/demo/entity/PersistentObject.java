@@ -1,4 +1,4 @@
-package com.asseco.pst.entity;
+package com.demo.entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

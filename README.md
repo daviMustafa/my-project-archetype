@@ -11,19 +11,19 @@ PS: With simple code samples.
 ## Instructions:
 1 - Execute inside root folder:
 
-    * mvn archetype:create-from-project
+    mvn archetype:create-from-project
 
 2 - Go to path_to_root_project/target/generated-sources/archetype
 
 3 - Execute to install your archetype in your local repository:
 
-    * mvn install
+    mvn install
 
-4 - Inside your .m2/repository folder open 'archetype-catalog.xml' file and check for installed archetypes
+4 - Inside your **.m2/repository** folder open **'archetype-catalog.xml'** file and check for installed archetypes
 
 5 - Generate a new project with the following command:
 
-    * mvn archetype:generate -DarchetypeCatalog=local
+    mvn archetype:generate -DarchetypeCatalog=local
     
 6 - Follow the promtd commands.    
 

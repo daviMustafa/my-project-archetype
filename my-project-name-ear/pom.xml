@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.asseco.pst</groupId>
+        <groupId>com.demo</groupId>
         <artifactId>my-project-name</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -23,7 +23,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.asseco.pst</groupId>
+            <groupId>${project.parent.groupId}</groupId>
             <artifactId>${project.parent.artifactId}-services</artifactId>
             <version>${project.version}</version>
             <type>war</type>

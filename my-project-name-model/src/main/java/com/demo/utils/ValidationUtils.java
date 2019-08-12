@@ -1,4 +1,4 @@
-package com.asseco.pst.utils;
+package com.demo.utils;
 
 import java.util.Collection;
 
