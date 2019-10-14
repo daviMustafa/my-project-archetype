@@ -13,9 +13,9 @@
 
     <artifactId>${project.parent.artifactId}-ear</artifactId>
     <version>${project.parent.version}</version>
-    <packaging>jar</packaging>
+    <packaging>ear</packaging>
     <name>${project.artifactId}</name>
-    <description>Models Layer</description>
+    <description>EAR Pack</description>
 
     <properties>
         <war-artifact-name>${project.parent.artifactId}-services</war-artifact-name>
