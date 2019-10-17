@@ -42,7 +42,7 @@
                             <groupId>${project.groupId}</groupId>
                             <artifactId>${war-artifact-name}</artifactId>
                             <bundleFileName>${war-artifact-name}.war</bundleFileName>
-                            <contextRoot>/${war-artifact-name}</contextRoot>
+                            <contextRoot>/${project.parent.artifactId}</contextRoot>
                         </webModule>
                     </modules>
                     <version>6</version>
