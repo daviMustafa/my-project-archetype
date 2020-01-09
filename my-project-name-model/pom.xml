@@ -17,6 +17,13 @@
     <name>${project.artifactId}</name>
     <description>Models Layer</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
         <resources>
