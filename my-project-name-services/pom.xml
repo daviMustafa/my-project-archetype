@@ -11,8 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>${project.parent.artifactId}-services</artifactId>
-    <version>${project.parent.version}</version>
+    <artifactId>my-project-name-services</artifactId>
     <packaging>war</packaging>
     <name>${project.artifactId}</name>
     <description>Service Layer</description>

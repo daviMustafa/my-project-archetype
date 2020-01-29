@@ -20,6 +20,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
         <maven-ear-plugin.version>3.0.1</maven-ear-plugin.version>
         <spring-boot-admin.version>2.1.5</spring-boot-admin.version>
 
@@ -28,10 +31,9 @@
 
         <h2database.version>1.4.197</h2database.version>
         <sqlserver.version>6.4.0.jre8</sqlserver.version>
-        <liquibase.version>3.5.3</liquibase.version>
+        <liquibase.version>3.8.0</liquibase.version>
 
         <slf4j.version>1.7.25</slf4j.version>
-        <logback.version>1.2.3</logback.version>
         <logback-ext-spring.version>0.1.5</logback-ext-spring.version>
     </properties>
 
@@ -60,12 +62,14 @@
             <dependency>
                 <groupId>com.microsoft.sqlserver</groupId>
                 <artifactId>mssql-jdbc</artifactId>
+                <scope>runtime</scope>
                 <version>${sqlserver.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
+                <scope>runtime</scope>
                 <version>${h2database.version}</version>
             </dependency>
 
@@ -80,12 +84,6 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
             </dependency>
 
             <dependency>
@@ -111,12 +109,6 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
@@ -125,23 +117,31 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
 
     <build>
         <finalName>${project.name}-${project.version}</finalName>
+
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
         </resources>
+
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.archetype</groupId>
+                <artifactId>archetype-packaging</artifactId>
+                <version>3.1.1</version>
+            </extension>
+        </extensions>
     </build>
 
     <modules>
-        <module>my-project-name-model</module>
+        <module>my-project-name-dto</module>
         <module>my-project-name-repository</module>
         <module>my-project-name-services</module>
         <module>my-project-name-ear</module>

@@ -1,8 +1,8 @@
 package com.demo.services.impl;
 
 import com.demo.entity.PersistentObject;
-import com.demo.repository.AbstractDao;
 import com.demo.services.AbstractService;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class AbstractServiceImpl<T extends PersistentObject<?>, ID> implements AbstractService<T, ID> {
 
-    private AbstractDao<T, ID> dao;
+    private JpaRepository<T, ID> dao;
 
     @Override
     public void persist(T entity) {
@@ -40,11 +40,11 @@ public class AbstractServiceImpl<T extends PersistentObject<?>, ID> implements A
         return this.dao.findAll();
     }
 
-    public AbstractDao<T, ID> getDaoImpl() {
+    public JpaRepository<T, ID> getDaoImpl() {
         return dao;
     }
 
-    void setDaoImpl(AbstractDao<T, ID> dao) {
+    void setDaoImpl(JpaRepository<T, ID> dao) {
         this.dao = dao;
     }
 }

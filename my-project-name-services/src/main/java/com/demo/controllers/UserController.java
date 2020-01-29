@@ -30,6 +30,6 @@ public class UserController {
         if(user.isPresent()){
             return new ResponseEntity<>(user, HttpStatus.OK);
         }
-        return new ResponseEntity(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
