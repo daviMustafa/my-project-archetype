@@ -1,10 +1,10 @@
 package com.demo.entity;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import com.demo.converters.LocalDateTimeAttributeConverter;
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @MappedSuperclass
@@ -16,8 +16,61 @@ public class PersistentObject<ID extends Serializable> implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private ID id;
 
+    @Column(name = "createdby", columnDefinition = "nvarchar(100)")
+    private String createdby;
+
+    @Column(name = "created", columnDefinition = "DATETIME")
+    @Convert(converter = LocalDateTimeAttributeConverter.class)
+    private LocalDateTime created;
+
+    @Column(name = "alteredby", columnDefinition = "nvarchar(100)")
+    private String alteredby;
+
+    @Column(name = "altered", columnDefinition = "DATETIME")
+    @Convert(converter = LocalDateTimeAttributeConverter.class)
+    private LocalDateTime altered;
+
+    public PersistentObject() {}
+
+    public PersistentObject(String createdby, LocalDateTime created){
+        this.createdby = createdby;
+        this.created = created;
+    }
+
     public ID getId() {
         return id;
+    }
+
+    public String getCreatedby() {
+        return createdby;
+    }
+
+    public void setCreatedby(String createdby) {
+        this.createdby = createdby;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    public String getAlteredby() {
+        return alteredby;
+    }
+
+    public void setAlteredby(String alteredby) {
+        this.alteredby = alteredby;
+    }
+
+    public LocalDateTime getAltered() {
+        return altered;
+    }
+
+    public void setAltered(LocalDateTime altered) {
+        this.altered = altered;
     }
 
     @Override
