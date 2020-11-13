@@ -14,21 +14,21 @@ public class PersistentObject<ID extends Serializable> implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private ID id;
+    protected ID id;
 
     @Column(name = "createdby", columnDefinition = "nvarchar(100)")
-    private String createdby;
+    protected String createdby;
 
     @Column(name = "created", columnDefinition = "DATETIME")
     @Convert(converter = LocalDateTimeAttributeConverter.class)
-    private LocalDateTime created;
+    protected LocalDateTime created;
 
     @Column(name = "alteredby", columnDefinition = "nvarchar(100)")
-    private String alteredby;
+    protected String alteredby;
 
     @Column(name = "altered", columnDefinition = "DATETIME")
     @Convert(converter = LocalDateTimeAttributeConverter.class)
-    private LocalDateTime altered;
+    protected LocalDateTime altered;
 
     public PersistentObject() {}
 
