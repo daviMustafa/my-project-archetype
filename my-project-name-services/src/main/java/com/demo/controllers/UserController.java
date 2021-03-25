@@ -1,7 +1,7 @@
 package com.demo.controllers;
 
 import com.demo.entity.User;
-import com.demo.models.UserDTO;
+import com.demo.model.UserDTO;
 import com.demo.services.UserService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8",
+@RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
         consumes = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
 @Api(tags = "User")
 public class UserController {
