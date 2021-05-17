@@ -1,4 +1,4 @@
-# Getting Started
+# Getting Started with this archetype
 
 #### PS: Any other idea for improvements, feel free to do a pull request or open an issue.
 
@@ -27,25 +27,36 @@ PS: With simple code samples.
     
 6 - Follow the promtd commands.    
 
-### Reference Documentation
-For further reference, please consider the following sections:
+=================================================================================================
+# ***Update settings below given your project configuration/names***
+# Guide to run your program after you generate your project 
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Configuration Processor](https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#configuration-metadata-annotation-processor)
-* [Spring Boot Admin (Client)](https://codecentric.github.io/spring-boot-admin/current/#getting-started)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-jpa-and-spring-data)
-* [Liquibase Migration](https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#howto-execute-liquibase-database-migrations-on-startup)
-* [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#production-ready)
-* [Spring Web Starter](https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-developing-web-applications)
-* [Spring Boot Admin (Server)](https://codecentric.github.io/spring-boot-admin/current/#getting-started)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#using-boot-devtools)
+### First of all execute maven command to generate packages in your local repository (my-project-name folder)
 
-### Guides
-The following guides illustrate how to use some features concretely:
+    - mvn clean install
+      or
+    - mvn clean install -Pdev
 
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-* [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
+    PS1: First command is the default one, used to generated ear, packaged with war file to run on application servers. 
+    PS2: The second one generate a jar file inside my-project-name-services target folder.
+    PS3: The third one generate a jar file inside my-project-name-services target folder already packaged 
+    with application-dev.properties and logback.xml files for development purposes.
 
+### To run on Eclipse with DEV profile
+
+### Go to Run -> Run Configurations -> Java Application
+
+    - Tab 'Main'
+      Project: my-project-name-services
+      Main class: com.demo.Application
+
+    - Tab 'Arguments'
+      Program arguments: --spring.profiles.active=dev --server.port=8086
+
+      PS: 'server.port' you may change for the one you want, in case the example one is being used by another application.
+
+### To run as a Standalone APP using DEVELOPMENT configuration (JAR will be in the my-project-name-services target folder, ignore EAR module)
+
+### Execute the following command
+
+      - java -jar myApplicationName.jar --spring.profiles.active=dev

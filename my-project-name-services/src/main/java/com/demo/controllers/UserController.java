@@ -14,8 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
-        consumes = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
+@RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @Api(tags = "User")
 public class UserController {
 
@@ -26,7 +25,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
+    @GetMapping(path = "/byName")
     public ResponseEntity<?> returnUserByName(@RequestParam("name") String name) {
         Optional<User> user = Optional.ofNullable(userService.findUserByName(name));
         if(user.isPresent()){
@@ -37,24 +36,24 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<?> returnUsers() {
-        Optional<List<User>> users = Optional.ofNullable(userService.findAll());
+        Optional<List<UserDTO>> users = Optional.ofNullable(userService.findUsers());
         if(users.isPresent()){
             return new ResponseEntity<>(users, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<?> saveUser(@RequestBody UserDTO userDTO) {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<?> updateUser(@PathVariable Integer id, @RequestBody UserDTO userDTO) {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(path = "/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Integer id) {
         return new ResponseEntity<>(HttpStatus.OK);
     }

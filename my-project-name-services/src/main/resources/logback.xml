@@ -1,0 +1,84 @@
+<configuration>
+	<property name="LOG_HOME" value="C:/SPRING_BOOT/LOGS/MY_APPLICATION_NAME" />
+	<property name="ROLLING_FILE_FOLDER" value="LogHistory" />
+	<property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n" />
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+		<file>${LOG_HOME}/my-application-name-error.log</file>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/${ROLLING_FILE_FOLDER}/%d{yyyy-MM-dd,aux}/Error/my-application-name.%d{yyyy-MM-dd}_%i.log.zip</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>30MB</maxFileSize>
+			 </timeBasedFileNamingAndTriggeringPolicy>
+			 <maxHistory>7</maxHistory>
+			 <cleanHistoryOnStart>true</cleanHistoryOnStart>
+		</rollingPolicy>
+
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+	        <level>ERROR</level>
+	    </filter>
+
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+		<file>${LOG_HOME}/my-application-name-debug.log</file>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/${ROLLING_FILE_FOLDER}/%d{yyyy-MM-dd,aux}/Debug/my-application-name.%d{yyyy-MM-dd}_%i.log.zip</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>30MB</maxFileSize>
+			 </timeBasedFileNamingAndTriggeringPolicy>
+			 <maxHistory>7</maxHistory>
+			 <cleanHistoryOnStart>true</cleanHistoryOnStart>
+		</rollingPolicy>
+	    
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<!-- Configure so that it outputs to both console and log file -->
+	<root level="INFO">
+		<appender-ref ref="CONSOLE"/>
+		<!--<appender-ref ref="ERROR"/> -->
+		<appender-ref ref="DEBUG"/>
+	</root>
+
+	<logger name="org.springframework" level="ERROR" />
+
+	<logger name="com.demo" level="TRACE" additivity="false">
+	    <appender-ref ref="ERROR"/>
+	    <appender-ref ref="DEBUG"/>
+	</logger>
+	
+	<logger name="org.hibernate.SQL" additivity="false" >   
+		<level value="DEBUG" />    
+		<appender-ref ref="DEBUG" />
+	</logger>
+
+	<logger name="org.hibernate.type" additivity="false" >
+	 	<level value="TRACE" />
+	 	<appender-ref ref="DEBUG" />
+	</logger>
+
+	<logger name="org.springframework.web" additivity="false">
+		<level value="TRACE" />
+	 	<appender-ref ref="DEBUG" />
+	</logger>
+
+</configuration>
+
+
+
