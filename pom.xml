@@ -147,32 +147,10 @@
         </extensions>
     </build>
 
-    <profiles>
-        <profile>
-            <id>servers</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-
-            <modules>
-                <module>my-project-name-model</module>
-                <module>my-project-name-repository</module>
-                <module>my-project-name-services</module>
-                <module>my-project-name-ear</module>
-            </modules>
-        </profile>
-
-        <profile>
-            <id>dev</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-
-            <modules>
-                <module>my-project-name-model</module>
-                <module>my-project-name-repository</module>
-                <module>my-project-name-services</module>
-            </modules>
-        </profile>
-    </profiles>
+    <modules>
+        <module>my-project-name-model</module>
+        <module>my-project-name-repository</module>
+        <module>my-project-name-services</module>
+        <module>my-project-name-ear</module>
+    </modules>
 </project>
