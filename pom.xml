@@ -27,7 +27,7 @@
         <spring-boot-admin.version>2.1.5</spring-boot-admin.version>
 
         <swagger.version>3.0.0</swagger.version>
-        <gson-code.version>2.8.2</gson-code.version>
+        <gson-code.version>2.8.9</gson-code.version>
 
         <!-- Database related -->
         <h2database.version>1.4.197</h2database.version>
